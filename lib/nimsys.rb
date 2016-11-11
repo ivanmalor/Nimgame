@@ -1,26 +1,39 @@
 # Nymsys is a text interactive program that reads and
 # executes commands from standard input
 
-puts "Welcome to Nim"
-print ">"
+class Nimsys
 
-# idle state of the game
+  def launch!
+    introduction
+    # action loop (idle state)
 
-loop do
-  # Add player
+    # Add player
 
-  # Remove player
+    # Remove player
 
-  # Edit player
+    # Edit player
 
-  # Reset stats
+    # Reset stats
 
-  # Display player
+    # Display player
 
-  # Rankings
+    # Rankings
 
-  # Start game
+    # Start game (active state)
 
-  # Exit the program
+    # Exit the program
+
+    conclusion
+  end
+
+
+  def introduction
+    puts "\n\n<<< Welcome to Nim >>>\n\n"
+    print ">"
+  end
+
+  def conclusion
+    puts "\n<<< Bye! >>>\n\n\n"
+  end
 
 end
