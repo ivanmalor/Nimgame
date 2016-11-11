@@ -17,11 +17,12 @@ class Nimsys
       # Add player
       if command == "addplayer"
         Player.add
-      end
 
       # Remove player
-
+      elsif command == "removeplayer"
+        Player.remove
       # Edit player
+      
 
       # Reset stats
 
@@ -30,6 +31,7 @@ class Nimsys
       # Rankings
 
       # Start game (active state)
+      end
       prompt
     end
     # Exit the program

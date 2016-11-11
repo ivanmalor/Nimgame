@@ -1,6 +1,6 @@
 
 class Player
-  @@players = []
+  @@players = {}
   attr_accessor :username, :given_name, :family_name
   attr_reader :games_played, :games_won
 
@@ -22,17 +22,34 @@ class Player
     Player.new(username, given_name, family_name)
   end
 
-  def self.username_exist?(username)
-    usernames = @@players.map { |player| player.username }
-    usernames.include?(username)
+  def self.remove
+    puts "\nEnter username\n\n"
+    username = gets.chomp
+
+    until username_exist?(username)
+      puts "\nThe player doesn't exist. Please enter an existent username\n\n"
+      username = gets.chomp
+    end
+
+    @@players.delete(username)
+
+    puts "Player #{username} has been deleted"
+
   end
+
+  def self.username_exist?(username)
+    @@players.has_key?(username)
+  end
+
+
 
   def initialize(username, given_name, family_name)
     @username = username
     @given_name = given_name
     @family_name = family_name
     @games_played, @games_won = 0,0
-    @@players << self
+
+    @@players.store(@username, self)
   end
 
 end
