@@ -37,6 +37,20 @@ class Player
 
   end
 
+  def self.edit
+    puts "\nEnter username\n\n"
+    username = gets.chomp
+    until username_exist?(username)
+      puts "\nThe player doesn't exist. Please enter an existent username\n\n"
+      username = gets.chomp
+    end
+    player = @@players[username]
+    puts "\nChange given name\n\n"
+    player.given_name = gets.chomp
+    puts "\nChange last name\n\n"
+    player.family_name = gets.chomp
+  end
+
   def self.username_exist?(username)
     @@players.has_key?(username)
   end

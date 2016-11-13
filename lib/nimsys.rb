@@ -22,7 +22,8 @@ class Nimsys
       elsif command == "removeplayer"
         Player.remove
       # Edit player
-      
+      elsif command == "editplayer"
+        Player.edit
 
       # Reset stats
 
