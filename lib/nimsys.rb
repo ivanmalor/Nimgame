@@ -6,25 +6,27 @@ class Nimsys
 
   def launch!
     introduction
-    prompt
     # action loop (idle state)
-
-    command = nil
-    until command == "end"
+    result = nil
+    until result == :end
       # input command
-      command = gets.chomp.downcase
+      prompt
+      user_response = gets.chomp.downcase
 
-      # Add player
-      if command == "addplayer"
-        Player.add
+      result = do_action(user_response)
+    end
+    # Exit the program
+    conclusion
+  end
 
-      # Remove player
-      elsif command == "removeplayer"
-        Player.remove
-      # Edit player
-      elsif command == "editplayer"
-        Player.edit
-
+  def do_action(action)
+    case action
+    when "addplayer"
+      Player.add
+    when "removeplayer"
+      Player.remove
+    when "editplayer"
+      Player.edit
       # Reset stats
 
       # Display player
@@ -32,16 +34,12 @@ class Nimsys
       # Rankings
 
       # Start game (active state)
-      end
-      prompt
+    when "end"
+      :end
+    else
+      puts "I don't understand the command"
     end
-    # Exit the program
-
-
-
-    conclusion
   end
-
 
   def introduction
     puts "\n\n<<< Welcome to Nim >>>\n\n"
