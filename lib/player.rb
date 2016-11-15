@@ -1,8 +1,8 @@
 
 class Player
   @@players = {}
-  attr_accessor :username, :given_name, :family_name
-  attr_reader :games_played, :games_won
+  attr_accessor :given_name, :family_name
+  attr_reader :username, :games_played, :games_won
 
   def self.add
     puts "\nEnter username\n\n"

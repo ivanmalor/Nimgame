@@ -11,9 +11,9 @@ class Nimsys
     until result == :end
       # input command
       prompt
-      user_response = gets.chomp.downcase
-
-      result = do_action(user_response)
+      user_response = gets.chomp.downcase.split(" ")
+      command = user_response.shift
+      result = do_action(command)
     end
     # Exit the program
     conclusion
